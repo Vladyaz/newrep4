@@ -5,12 +5,12 @@ window.SBX_dlc.dataContainer = window.SBX_dlc.dataContainer || [];
 
 window.SBX_dlc.getStringifiedDatalayer = function(d) {
 	d = d || [];
-	var c=[];
+	var c=[]; 
 	// dataLayer object loop
 	for (var i=0; i<d.length; i++) {
 		// copy all keys and format gt.element key
 		var o={};
-		for (var key in d[i]) {
+		for (var key in d[i]) { blah blah blah fuck
 			//if (typeof d[i][key] == 'object' && /^gtm\.element$/.test(key)) {
 			if ( d[i][key] instanceof HTMLElement ) {
 				o[key] = d[i][key].outerHTML.replace(/"/g, '\'').replace(/\n\s*/g, '');
