@@ -22,4 +22,4 @@ window.SBX_dlc.getStringifiedDatalayer = function(d) {
 		c.push(o); // clone
 	}
 	return JSON.stringify(c);
-};balala fuck you
+};
