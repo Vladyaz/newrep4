@@ -1,0 +1,25 @@
+window.SBX_dlc = window.SBX_dlc || {}
+window.SBX_dlc.hasGTM = window.hasOwnProperty('google_tag_manager');
+window.SBX_dlc.dataContainer = window.SBX_dlc.dataContainer || [];
+
+
+window.SBX_dlc.getStringifiedDatalayer = function(d) {
+	d = d || [];
+	var c=[];
+	// dataLayer object loop
+	for (var i=0; i<d.length; i++) {
+		// copy all keys and format gt.element key
+		var o={};
+		for (var key in d[i]) {
+			//if (typeof d[i][key] == 'object' && /^gtm\.element$/.test(key)) {
+			if ( d[i][key] instanceof HTMLElement ) {
+				o[key] = d[i][key].outerHTML.replace(/"/g, '\'').replace(/\n\s*/g, '');
+			}
+			else {
+				o[key] = d[i][key];
+			}
+		}
+		c.push(o); // clone
+	}
+	return JSON.stringify(c);
+};
